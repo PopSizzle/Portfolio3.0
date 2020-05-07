@@ -1,0 +1,67 @@
+.nav-link {
+    color: red;
+}
+
+#indexBody{
+    background-image: url("./2560px-Central_Californian_Coastline\,_Big_Sur_-_May_2013.jpg");
+}
+
+#contactBody{
+    background-image: url("./blue\ crystals.jpg");
+}
+
+#bioCard {
+    position: fixed;
+    top: 100px;
+    right: 200px;
+}
+
+#projectsBody{
+    background-image: url("./vector-seamless-geometric-blue-pattern.jpg");
+}
+
+.w-40{
+    position: fixed;
+    top: 50px;
+    left: 230px;
+}
+
+.location{
+    position: fixed;
+    top: 75px;
+    left: 450px;
+}
+
+#positions{
+    list-style-type: none;
+}
+
+#passGenCard{
+    position: fixed;
+    top: 80px;
+    left: 270px;
+}
+
+#gameboardCard{
+    position: fixed;
+}
+
+#quizCard{
+    position: fixed;
+    top: 120px;
+    left: 540px;
+}
+
+#plannerCard{
+    position: fixed;
+    top: 160px;
+    left: 800px;
+}
+
+@media (max-width: 760px) {
+    .card {
+        position: relative;
+        display: inline-block;
+        width:100%;
+    }
+  }
