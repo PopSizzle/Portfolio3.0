@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Tool = sequelize.define("Contact", {
+    var Contact = sequelize.define("Contact", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
