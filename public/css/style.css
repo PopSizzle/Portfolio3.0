@@ -2,6 +2,10 @@
     color: red;
 }
 
+.opacity {
+    opacity: 0.95;
+}
+
 #indexBody{
     background-image: url("./2560px-Central_Californian_Coastline\,_Big_Sur_-_May_2013.jpg");
 }
