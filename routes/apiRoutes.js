@@ -1,6 +1,9 @@
 var db = require("../models");
+const path = require("path");
 
 module.exports = function (app) {
+
+    // ***Potential future functionality with multiple users ***
     // route that checks for user info during login
     app.put("/api/ser", (req, res) => {
         // Search user table for an item where email & password match
@@ -19,13 +22,13 @@ module.exports = function (app) {
     app.post("api/user", (req, res) => {
         // create new record for this user
         db.User.create(req.body)
-        .then(user => {
-            // send back user id to client
-            res.json(user.id);
-        }).catch(err => {
-            console.log(err)
-            res.send(false);
-        })
+            .then(user => {
+                // send back user id to client
+                res.json(user.id);
+            }).catch(err => {
+                console.log(err)
+                res.send(false);
+            })
     })
 
     // route that gets information from a specific user
@@ -54,7 +57,7 @@ module.exports = function (app) {
             }
         }).then(() => {
             // send back true
-            res.send(true);        
+            res.send(true);
         }).catch(err => {
             console.log(err);
             res.send(false);
@@ -62,7 +65,7 @@ module.exports = function (app) {
     })
 
     // route used to get all projects of a certain user
-    app.get("/api/user/:id/events", (req, res) => {
+    app.get("/api/user/:id/projects", (req, res) => {
         // search Project table for all projects be a certain user
         db.Project.findAll({
             where: {
@@ -74,5 +77,96 @@ module.exports = function (app) {
             console.log(err);
             res.send(false);
         })
+    })
+    // ***********************************
+
+    // route to get all projects
+    app.get("/api/project", (req, res) => {
+
+        db.Project.findAll({})
+            .then(projects => {
+                res.json(projects);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to create a new project
+    app.post("/api/project", (req, res) => {
+
+        db.Project.create(req.body)
+            .then(() => {
+                res.send(true);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route to update a project
+    app.put("/api/project/:id", (req, res) => {
+        db.Project.update(req.body, { where: { id: req.params.id } })
+            .then(() => {
+                res.send(true);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to delete a project
+    app.delete("/api/project/:id", (req, res) => {
+        db.Project.destroy({ where: { id: req.params.id } })
+            .then(() => {
+                res.send(true)
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to create a tool
+    app.post("/api/tool", (req, res) => {
+        db.Tool.create(req.body)
+            .then(() => {
+                res.send(true);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to delete a tool
+    app.delete("/api/tool/:id", (req, res) => {
+        db.Tool.destroy({ where: { id: req.params.id } })
+            .then(() => {
+                res.send(true)
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to create a ProjectTool
+    app.post("/api/projecttool", (req, res) => {
+        db.ProjectTool.create(req.body)
+            .then(() => {
+                res.send(true);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
+    // route used to delete a ProjectTool
+    app.delete("/api/projecttool/:id", (req, res) => {
+        db.ProjectTool.destroy({ where: { id: req.params.id } })
+            .then(() => {
+                res.send(true)
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
     })
 }

@@ -14,14 +14,12 @@ module.exports = function (sequelize, DataTypes) {
         deployedLink: {
             type: DataTypes.STRING
         },
-        repolink: {
+        repoLink: {
             type: DataTypes.STRING
         }
     });
     // ASsociating projects and users
     Project.associate = models => {
-        // Each Project belongs to one User
-        models.Project.belongsTo(models.User, { as: "author" })
         // Each Project can have many projetTools
         models.Project.hasMany(models.ProjectTool, {
             onDelete: "cascade"

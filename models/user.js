@@ -25,12 +25,12 @@ module.exports = function (sequelize, DataTypes) {
         }
     })
     // associating Users to Projects
-    User.associate = models => {
+    // User.associate = models => {
         // Each user can have many projects
-        models.User.hasMany(models.Project, {
-            onDelete: "cascade"
-        })
-    }
+    //     models.User.hasMany(models.Project, {
+    //         onDelete: "cascade"
+    //     })
+    // }
 
     return User;
 }
