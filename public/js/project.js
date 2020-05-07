@@ -1,3 +1,0 @@
-// function renderProjects() {
-//     $.get(queryURL)
-// }

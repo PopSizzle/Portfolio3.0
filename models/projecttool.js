@@ -1,5 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
     var ProjectTool = sequelize.define("ProjectTool", {
+        name: {
+            type: DataTypes.STRING
+        }
     });
 
     // associate ProjectTools with Users and Tools
