@@ -18,6 +18,9 @@ module.exports = function (app, path) {
     app.get("/login", (req, res) => {
         res.sendFile("/html/login.html", { root: path.join(__dirname, "../public") })
     })
+    app.get("/profilepic", (req, res) => {
+        res.sendFile("/html/profilepic.jpg", { root: path.join(__dirname, "../public") })
+    })
     // Send about page to all undefined routes
     app.get("*", (req, res) => {
         res.sendFile("/html/index.html", { root: path.join(__dirname, "../public") })
