@@ -169,4 +169,15 @@ module.exports = function (app) {
                 res.send(false);
             })
     })
+
+    // route used to create a Contact
+    app.post("/api/contact", (req, res) => {
+        db.Contact.create(req.body)
+            .then(() => {
+                res.send(true);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
 }

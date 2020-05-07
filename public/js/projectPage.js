@@ -12,7 +12,7 @@ function renderProjects() {
                 <h5 class="card-title">${i + 1} - ${projects[i].title}</h5>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="${projects[i].deployedLink}">Deployed Link</a></h6>
                 <p class="card-text">${projects[i].description}</p>
-                <p class="card-text"><img src="${projects[i].imageLink}"></p>
+                <p class="card-text"><img src="${projects[i].imageLink}" style="max-height: 400px; max-width: 500px;"></p>
                 <h6 class="card-subtitle mb-2 text-muted"><a href="${projects[i].repoLink}">Project Repository<a></h6>
 
             </div>
