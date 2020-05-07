@@ -11,6 +11,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false
         },
+        imageLink: {
+            type: DataTypes.STRING
+        },
         deployedLink: {
             type: DataTypes.STRING
         },
