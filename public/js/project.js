@@ -1,0 +1,3 @@
+// function renderProjects() {
+//     $.get(queryURL)
+// }
