@@ -159,6 +159,18 @@ module.exports = function (app) {
             })
     })
 
+    // route to get all ProjectTools
+    app.get("/api/projecttool", (req, res) => {
+
+        db.ProjectTool.findAll({})
+            .then(projectTools => {
+                res.json(projectTools);
+            }).catch(err => {
+                console.log(err);
+                res.send(false);
+            })
+    })
+
     // route used to delete a ProjectTool
     app.delete("/api/projecttool/:id", (req, res) => {
         db.ProjectTool.destroy({ where: { id: req.params.id } })
